@@ -77,7 +77,7 @@ def juego(personaje):
     while True: #Se comienza a jugar con este nuevo ciclo
         #se cargan las imagenes que se van a mostrar en pantalla 
         fondo = cv2.imread('./image/fondo.png') #640x480
-        nota_verde = cv2.imread('./image/nota_verde_1.png') #70X32
+        nota_verde = cv2.imread('./image/PruebaVoto-modified.png') #70X32
         fil,col,_= personaje.shape #Se obtienen las dimensiones de la imagen del personaje
         ret, frame=video.read()# lee las capturas de la camara (video) y las muestra   
         frame=cv2.flip(frame,1)#evita el efecto espejo
@@ -133,18 +133,18 @@ while True: #Con el siguiente ciclo se bucará identificar un objeto de color ro
     x_azul=captura_color(azul_bajo, azul_alto,(255,0,0),ret,frame)#Identifica objeto de color azul y retorna su componente en X
     x_verde=captura_color(verde_bajo, verde_alto,(0,255,0),ret,frame)#Identifica objeto de color verde y retorna su componente en X
     if x_roja!=0:#Si se logra identificar un color rojo la componente de X será diferente de 0, entonces se cerrarán las ventanas
-        personaje = cv2.imread('./image/personaje.png') #Cargamos la imagen del personaje seleccionado 130x162
+        personaje = cv2.imread('./image/ElTibio.png') #Cargamos la imagen del personaje seleccionado 130x162
         cv2.destroyAllWindows() #Destruye las ventanas
         marcador,perdidas = juego(personaje)#Llamamos la funcion jugar le enviamos el personaje y obtenemos el marcador y las perdidas
         break#Cierra el ciclo
     if x_azul!=0:
         cv2.destroyAllWindows() #Destruye las ventanas
-        personaje = cv2.imread('./image/nota_verde_1.png') #Cargamos la imagen del personaje seleccionado 130x162
+        personaje = cv2.imread('./image/Petrosky.png') #Cargamos la imagen del personaje seleccionado 130x162
         marcador,perdidas = juego(personaje) #Llamamos la funcion jugar le enviamos el personaje y obtenemos el marcador y las perdidas
         break#Cierra el ciclo
     if x_verde!=0:
         cv2.destroyAllWindows() #Destruye las ventanas
-        personaje = cv2.imread('./image/nota_roja_1.png') #Cargamos la imagen del personaje seleccionado 130x162
+        personaje = cv2.imread('./image/Uribito.png') #Cargamos la imagen del personaje seleccionado 130x162
         marcador,perdidas = juego(personaje) #Llamamos la funcion jugar le enviamos el personaje y obtenemos el marcador y las perdidas
         break#Cierra el ciclo
 
